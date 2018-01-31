@@ -19,6 +19,7 @@ module Binance
         end
 
         def signed_request_signature(payload:)
+          ap payload
           raise Error.new(message: "environment variable 'BINANCE_SECRET_KEY' is required " \
             "for signed requests.") unless secret_key
           digest = OpenSSL::Digest::SHA256.new
